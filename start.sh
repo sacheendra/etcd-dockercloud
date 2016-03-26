@@ -15,8 +15,8 @@ for i in $( eval echo {1..$MAX_SERVERS});do
 done
 
 exec /bin/etcd -name $DOCKERCLOUD_CONTAINER_HOSTNAME \
-  -advertise-client-urls https://$DOCKERCLOUD_CONTAINER_HOSTNAME:2379 \
-  -listen-client-urls https://0.0.0.0:2379 \
+  -advertise-client-urls http://$DOCKERCLOUD_CONTAINER_HOSTNAME:2379 \
+  -listen-client-urls http://0.0.0.0:2379 \
   -initial-advertise-peer-urls http://$DOCKERCLOUD_CONTAINER_HOSTNAME:2380 \
   -listen-peer-urls http://0.0.0.0:2380 \
   -initial-cluster-token $CLUSTER_NAME \
